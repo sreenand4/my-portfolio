@@ -1,10 +1,10 @@
 ---
-title: "Startup Inc"
-subtitle: "Frontend Developer"
-logo: "https://api.dicebear.com/9.x/shapes/svg?seed=Eden"
-startDate: "2019-01-15"
-endDate: "2021-05-30"
-link: "https://example.com"
+title: "Cleo"
+subtitle: "Software Engineer Co-op"
+logo: ""
+startDate: "2024-01-01"
+endDate: "2024-06-30"
+link: "https://www.cleocompanies.com/"
 ---
 
-Built responsive web applications using Vue.js and modern CSS frameworks. Collaborated with designers to create pixel-perfect user interfaces.
+- Contributed to **front-end development** of landing page, adding features, and improving platform reliability and user experience.

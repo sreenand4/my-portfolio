@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import { ArrowUpRight } from "@lucide/astro";
 
 interface Props {
   collection: "work" | "education";
@@ -29,7 +30,7 @@ const entries = await getCollection(collection);
 
 // Sort by start date, most recent first
 const sortedEntries = entries.sort(
-  (a, b) => b.data.startDate.getTime() - a.data.startDate.getTime()
+  (a, b) => b.data.startDate.getTime() - a.data.startDate.getTime(),
 );
 
 function formatPeriod(startDate: Date, endDate?: Date) {
@@ -49,7 +50,7 @@ const entriesWithContent = await Promise.all(
   sortedEntries.map(async (entry) => {
     const { Content } = await render(entry);
     return { entry, Content };
-  })
+  }),
 );
 ---
 
@@ -74,14 +75,12 @@ const entriesWithContent = await Promise.all(
                 <IconComponent class={`size-5 text-${color} mx-3 my-1`} />
               </div>
               <div
-                class={`timeline-${index % 2 === 0 ? "start" : "end"} pt-3 mb-10`}
-              >
+                class={`timeline-${index % 2 === 0 ? "start" : "end"} pt-3 mb-10`}>
                 <time
-                  class={`font-mono text-sm text-base-content/70 block italic ${index % 2 === 0 ? "text-end" : ""}`}
-                >
+                  class={`font-mono text-sm text-base-content/70 block italic ${index % 2 === 0 ? "text-end" : ""}`}>
                   {formatPeriod(entry.data.startDate, entry.data.endDate)}
                 </time>
-                <div class="card bg-base-100 shadow-xl mt-2">
+                <div class="card bg-base-100/50 backdrop-blur-md border border-white/20 shadow-xl mt-2 transition-all duration-300 hover:shadow-primary/5 hover:border-primary/20 hover:scale-[1.01] rounded-3xl">
                   <div class="card-body">
                     <div class="flex items-center gap-4 mb-2">
                       {entry.data.logo && (
@@ -107,11 +106,13 @@ const entriesWithContent = await Promise.all(
                           href={entry.data.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="link link-hover"
-                        >
-                          {collection === "work"
-                            ? "View Company"
-                            : "View Institution"}
+                          class="btn btn-circle btn-sm btn-ghost"
+                          aria-label={
+                            collection === "work"
+                              ? "View Company"
+                              : "View Institution"
+                          }>
+                          <ArrowUpRight class="size-5" />
                         </a>
                       </div>
                     )}
@@ -125,9 +126,9 @@ const entriesWithContent = await Promise.all(
           ))}
         </ul>
       ) : (
-        <ul class="list bg-base-100 rounded-box shadow-lg">
+        <ul class="list bg-base-100/50 backdrop-blur-md border border-white/20 rounded-box shadow-lg">
           {entriesWithContent.map(({ entry, Content }, index) => (
-            <li class="border-b hover:opacity-85 transition-opacity border-base-300 last:border-b-0">
+            <li class="border-b hover:opacity-85 transition-opacity border-white/10 last:border-b-0">
               <details class="collapse">
                 <summary class="collapse-title pe-5">
                   <div class="list-row p-0 items-center after:hidden">
@@ -163,11 +164,13 @@ const entriesWithContent = await Promise.all(
                       <a
                         href={entry.data.link}
                         target="_blank"
-                        class="link link-hover"
-                      >
-                        {collection === "work"
-                          ? "View Company"
-                          : "View Institution"}
+                        class="btn btn-circle btn-sm btn-ghost"
+                        aria-label={
+                          collection === "work"
+                            ? "View Company"
+                            : "View Institution"
+                        }>
+                        <ArrowUpRight class="size-5" />
                       </a>
                     </div>
                   )}

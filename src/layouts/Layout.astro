@@ -3,6 +3,7 @@ import "../styles/global.css";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import ThemeSelector from "../components/ThemeSelector.astro";
 import FabFlower from "../components/FabFlower.astro";
+import LiquidEther from "../components/LiquidEther.jsx";
 import { ClientRouter } from "astro:transitions";
 import { siteConfig } from "../config";
 
@@ -70,6 +71,10 @@ const origin = Astro.url.origin;
     <!-- Theme Controls - Fixed Position -->
     <div class="fixed top-4 right-4 z-50">
       {siteConfig.enableThemeSelector ? <ThemeSelector /> : <ThemeToggle />}
+    </div>
+
+    <div class="fixed inset-0 -z-10 h-full w-full">
+      <LiquidEther client:only="react" />
     </div>
 
     <slot />

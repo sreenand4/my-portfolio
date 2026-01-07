@@ -1,10 +1,11 @@
 ---
-title: "Tech Corp"
-subtitle: "Senior Full Stack Developer"
-logo: "https://api.dicebear.com/9.x/shapes/svg?seed=Easton"
-startDate: "2021-06-01"
-endDate: "2024-01-01"
-link: "https://example.com"
+title: "Posh AI - Conversational AI for the Financial Industry"
+subtitle: "Software Engineer Intern"
+logo: ""
+startDate: "2025-08-01"
+endDate: "2025-12-19"
+link: "https://www.posh.ai"
 ---
 
-Led development of multiple high-impact web applications using React, Node.js, and PostgreSQL. Mentored junior developers and implemented best practices for code quality and testing.
+- Contributing production code to **AI voice and chat banking experiences** used by **90+ institutions and 5M+ monthly users**.
+

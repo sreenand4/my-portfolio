@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { ExternalLink } from "astro-feather";
+import SkillBadge from "./SkillBadge.astro";
+import { Eye } from "lucide-react"; // Wait, check imports in ProjectCard, it was @lucide/astro
+import { ExternalLink as LucideExternalLink } from "lucide-react"; // Checking imports...
+// Let's check ProjectCard imports again from history to be safe.
+// Step 87: import { ExternalLink, Eye } from "@lucide/astro";
+// Step 87: import { Image } from "astro:assets";
+// Step 87: import SkillBadge from "./SkillBadge.astro";
+---

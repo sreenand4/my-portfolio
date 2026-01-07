@@ -12,6 +12,7 @@ import { Code } from "astro:components";
  * Social media links configuration
  */
 export interface SocialLinks {
+  phone?: string;
   github?: string;
   linkedin?: string;
   twitter?: string;
@@ -88,6 +89,8 @@ export interface SiteConfig {
   extraLinks: ExtraLinks;
   /** Sections visibility configuration (Hero is always visible) */
   sections: SectionsConfig;
+  /** Strings for the typewriter effect in Hero section */
+  typewriterText: string[];
 }
 
 /**
@@ -95,17 +98,23 @@ export interface SiteConfig {
  * Update these values to customize your portfolio
  */
 export const siteConfig: SiteConfig = {
-  name: "🌻 Bloomfolio",
-  title: "Astro Portfolio Template built with 🌼 DaisyUI",
+  name: "Sree",
+  title: "Sreenand Mallisetty",
+  typewriterText: [
+    "Hey, I'm Sree!",
+    "I build thoughtful software",
+    "I love visual storytelling!"
+  ],
   description:
-    "A modern, responsive, and customizable portfolio template built with Astro and DaisyUI. Perfect for developers, designers, and creatives to showcase their work and skills.",
-  avatar: "../assets/bloomfolio.png",
-  location: "🇧🇷 Brazil",
-  email: "hello@example.com",
+    "I’m currently a student at Northeastern University’s Khoury College of Computer Sciences, interested in building user-centered products that blend creativity with functionality. Outside of tech, I enjoy filmmaking and love spending time outdoors—whether that’s driving aimlessly, hiking, or camping!",
+  avatar: "/images/avatar.png",
+  location: "Boston, MA",
+  email: "sreenand6@gmail.com",
   socialLinks: {
-    github: "https://github.com/lauroguedes",
-    linkedin: "https://linkedin.com/in/lauroguedes",
-    twitter: "https://twitter.com/leowg",
+    phone: "+1 (631) 352-9719", // Placeholder, user can update
+    github: "https://github.com/sreenand4",
+    linkedin: "https://www.linkedin.com/in/sree-mallisetty-7753b0207/",
+    twitter: "https://x.com/explore",
     bluesky: "https://bsky.app/profile/lauroguedes.bsky.social",
     instagram: "https://instagram.com/lauroguedes.dev",
     youTube: "https://youtube.com/leowgweb",
@@ -113,7 +122,7 @@ export const siteConfig: SiteConfig = {
   },
   enableThemeSelector: true,
   extraLinks: {
-    enable: true,
+    enable: false,
     links: [
       {
         link: "/blog/guides/bloomfolio-complete-guide",
@@ -138,12 +147,12 @@ export const siteConfig: SiteConfig = {
     ],
   },
   sections: {
-    about: true,
+    about: false,
     projects: true,
-    blog: true,
+    blog: false,
     work: true,
     education: true,
-    hackathons: true,
+    hackathons: false,
     contact: true,
   },
 };

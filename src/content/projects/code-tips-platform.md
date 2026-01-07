@@ -1,10 +1,10 @@
 ---
-title: "Code Tips Platform"
-description: "A centralized platform for storing and sharing code snippets, enabling developers to create, discover, and manage code examples across 100+ programming languages."
-image: "https://api.dicebear.com/9.x/glass/svg?seed=Jocelyn"
+title: "Fitly - Virtual try on"
+description: "A Chrome Extension that sits on the side of your browser, allowing you to try on clothes as you shop online! Helping you make more confident purchases, and avoid pain staking returns."
+image: "./fitly_thumbnail.png"
 startDate: "2025-06-01"
-skills: ["Laravel", "Inertia JS", "Vue 3", "TypeScript", "Monaco Editor", "Tailwind CSS"]
-demoLink: "https://codetips.cloud"
+skills: ["React", "TypeScript", "Tailwind CSS", "Manifest V3", "Firebase"]
+demoLink: "https://chromewebstore.google.com/detail/fitly-virtual-try-on/hfeabhahdlpcanbapenbpipdaolljddm"
 ---
 
 ## About Code Tips
