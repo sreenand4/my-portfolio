@@ -7,6 +7,7 @@
 
 import { BookOpen, FileText, Flower2, CodeXml } from "@lucide/astro";
 import { Code } from "astro:components";
+import avatarImage from "./assets/avatar.png";
 
 /**
  * Social media links configuration
@@ -76,7 +77,7 @@ export interface SiteConfig {
   /** Site description for SEO and hero section */
   description: string;
   /** Path to avatar/logo image */
-  avatar: string;
+  avatar: any;
   /** Location/City */
   location: string;
   /** Contact email */
@@ -107,7 +108,7 @@ export const siteConfig: SiteConfig = {
   ],
   description:
     "I’m currently a student at Northeastern University’s Khoury College of Computer Sciences, interested in building user-centered products that blend creativity with functionality. Outside of tech, I enjoy filmmaking and love spending time outdoors—whether that’s driving aimlessly, hiking, or camping!",
-  avatar: "/images/avatar.png",
+  avatar: avatarImage,
   location: "Boston, MA",
   email: "sreenand6@gmail.com",
   socialLinks: {
