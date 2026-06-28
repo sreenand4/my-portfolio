@@ -33,12 +33,26 @@ const sortedEntries = entries.sort(
   (a, b) => b.data.startDate.getTime() - a.data.startDate.getTime(),
 );
 
+// Evaluated at render/build time so the status flips automatically on the start date
+const now = new Date();
+
+// "Incoming" before an entry's start date, "Current" once it has started and is ongoing
+function getStatus(startDate: Date, endDate?: Date): "Incoming" | "Current" | null {
+  if (startDate.getTime() > now.getTime()) return "Incoming";
+  if (!endDate || endDate.getTime() >= now.getTime()) return "Current";
+  return null;
+}
+
 function formatPeriod(startDate: Date, endDate?: Date) {
   const options: Intl.DateTimeFormatOptions = {
     month: "short",
     year: "numeric",
   };
   const start = startDate.toLocaleDateString("en-US", options);
+  // Future-dated entries haven't begun yet
+  if (startDate.getTime() > now.getTime()) {
+    return `Starting ${start}`;
+  }
   const end = endDate
     ? endDate.toLocaleDateString("en-US", options)
     : "Present";
@@ -91,7 +105,19 @@ const entriesWithContent = await Promise.all(
                         </div>
                       )}
                       <div>
-                        <h3 class="card-title">{entry.data.title}</h3>
+                        <h3 class="card-title flex items-center gap-2">
+                          {entry.data.title}
+                          {getStatus(entry.data.startDate, entry.data.endDate) && (
+                            <span
+                              class={`badge badge-sm ${
+                                getStatus(entry.data.startDate, entry.data.endDate) === "Incoming"
+                                  ? "badge-warning"
+                                  : "badge-success"
+                              }`}>
+                              {getStatus(entry.data.startDate, entry.data.endDate)}
+                            </span>
+                          )}
+                        </h3>
                         <p class={`text-${color} font-semibold`}>
                           {entry.data.subtitle}
                         </p>
@@ -143,7 +169,19 @@ const entriesWithContent = await Promise.all(
                     </div>
 
                     <div>
-                      <h3 class="font-bold text-lg">{entry.data.title}</h3>
+                      <h3 class="font-bold text-lg flex items-center gap-2">
+                        {entry.data.title}
+                        {getStatus(entry.data.startDate, entry.data.endDate) && (
+                          <span
+                            class={`badge badge-sm ${
+                              getStatus(entry.data.startDate, entry.data.endDate) === "Incoming"
+                                ? "badge-warning"
+                                : "badge-success"
+                            }`}>
+                            {getStatus(entry.data.startDate, entry.data.endDate)}
+                          </span>
+                        )}
+                      </h3>
                       <p class={`text-${color} font-semibold text-sm`}>
                         {entry.data.subtitle}
                       </p>
